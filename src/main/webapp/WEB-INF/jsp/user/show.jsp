@@ -44,6 +44,30 @@
 
                             <!-- Content goes here! -->
 
+                            <%--@elvariable id="user" type="pl.coderslab.jeeusercrud.entity.User"--%>
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <th scope="row">ID</th>
+                                    <td>${user.id}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Username</th>
+                                    <td>${user.userName}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">E-mail</th>
+                                    <td>${user.email}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <a href="<c:url value="/user/list"/>" class="btn btn-primary btn-icon-split">
+                                <span class="icon text-white-50"><i class="fas fa-flag"></i></span>
+                                <span class="text">Return</span>
+                            </a>
+                            <!-- End of content -->
+
                         </div>
                     </div>
                     <!-- End of users tab -->
