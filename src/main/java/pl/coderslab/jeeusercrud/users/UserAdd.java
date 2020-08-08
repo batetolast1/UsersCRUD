@@ -1,6 +1,7 @@
 package pl.coderslab.jeeusercrud.users;
 
 import pl.coderslab.jeeusercrud.dao.UserDao;
+import pl.coderslab.jeeusercrud.entity.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,13 +15,27 @@ public class UserAdd extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserDao userDao = new UserDao();
 
+        String email = request.getParameter("email");
+        String userName = request.getParameter("username");
+        String password = request.getParameter("password");
 
+        System.out.println(email);
+        System.out.println(userName);
+        System.out.println(password);
 
-        getServletContext().getRequestDispatcher("/WEB-INF/jsp/user/list.jsp").forward(request, response);
+        User user = new User.Builder(0)
+                .withEmail(email)
+                .withUserName(userName)
+                .withPassword(password)
+                .build();
+
+        user = userDao.create(user);
+
+        response.sendRedirect(request.getContextPath() + "/user/list");
+        //getServletContext().getRequestDispatcher("/user/list").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        response.getWriter().append("działa");
+        getServletContext().getRequestDispatcher("/WEB-INF/jsp/user/add.jsp").forward(request, response);
     }
 }
