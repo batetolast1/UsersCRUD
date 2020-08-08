@@ -15,11 +15,14 @@ public class UserEdit extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserDao userDao = new UserDao();
 
+        String id = request.getParameter("id");
+        int parsedId = Integer.parseInt(id);
+
+        User user = userDao.read(parsedId);
+
         String email = request.getParameter("email");
         String userName = request.getParameter("username");
         String password = request.getParameter("password");
-
-        User user = userDao.readByEmail(email);
 
         user.setEmail(email);
         user.setUserName(userName);
