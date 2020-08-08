@@ -64,7 +64,7 @@
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->
-    <%@ include file="/WEB-INF/jsp/user/scripts.jsp" %>
+    <%@ include file="/WEB-INF/jsp/user/scrollToTop.jsp" %>
 
     <!-- All used scripts-->
     <%@ include file="/WEB-INF/jsp/user/scripts.jsp" %>

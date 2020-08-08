@@ -33,12 +33,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">UsersCRUD</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                            <i class="fas fa-download fa-sm text-white-50"></i> Add user
-                        </a>
-                    </div>
+                    <%@ include file="/WEB-INF/jsp/user/pageHeading.jsp" %>
 
                     <!-- Users Card -->
                     <div class="card shadow mb-4">
@@ -46,6 +41,8 @@
                             <h6 class="m-0 font-weight-bold text-primary">All users</h6>
                         </div>
                         <div class="card-body">
+
+                            <!-- Content goes here! -->
 
                             <!-- Table -->
                             <table class="table">
@@ -111,7 +108,7 @@
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->
-    <%@ include file="/WEB-INF/jsp/user/scripts.jsp" %>
+    <%@ include file="/WEB-INF/jsp/user/scrollToTop.jsp" %>
 
     <!-- All used scripts-->
     <%@ include file="/WEB-INF/jsp/user/scripts.jsp" %>
