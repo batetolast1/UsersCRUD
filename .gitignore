@@ -125,7 +125,4 @@ buildNumber.properties
 # https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
 
-.idea/.gitignore
-.idea/misc.xml
-.idea/vcs.xml
-/.idea/dataSources.xml
+/.idea/
