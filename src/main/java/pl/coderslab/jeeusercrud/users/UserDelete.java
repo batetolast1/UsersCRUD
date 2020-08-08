@@ -18,6 +18,8 @@ public class UserDelete extends HttpServlet {
         String id = request.getParameter("id");
         int parsedId = Integer.parseInt(id);
 
+        // @todo add id validation, add popup with result info
+
         userDao.delete(parsedId);
 
         response.sendRedirect(request.getContextPath() + "/user/list");

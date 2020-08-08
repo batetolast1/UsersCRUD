@@ -17,16 +17,17 @@ public class UserEdit extends HttpServlet {
 
         String id = request.getParameter("id");
         int parsedId = Integer.parseInt(id);
-
-        User user = userDao.read(parsedId);
-
         String email = request.getParameter("email");
         String userName = request.getParameter("username");
         String password = request.getParameter("password");
 
-        user.setEmail(email);
-        user.setUserName(userName);
-        user.setPassword(password);
+        // @todo add data validation, add popup with result info
+
+        User user = new User.Builder(parsedId)
+                .withEmail(email)
+                .withUserName(userName)
+                .withPassword(password)
+                .build();
 
         userDao.update(user);
 
