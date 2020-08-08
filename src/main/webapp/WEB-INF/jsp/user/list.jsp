@@ -56,7 +56,7 @@
                                 </thead>
 
                                 <tbody>
-                                    <%--@elvariable id="users" type="java.util.Arrays"--%>
+                                <%--@elvariable id="users" type="java.util.Arrays"--%>
                                     <c:forEach var="user" items="${users}">
                                         <tr>
                                             <th scope="row">${user.id}</th>
@@ -69,7 +69,7 @@
                                                     </span>
                                                     <span class="text">Delete</span>
                                                 </a>
-                                                <a href="<c:url value="/user/edit"/>" class="btn btn-primary btn-icon-split">
+                                                <a href="<c:url value="/user/edit?id=${user.id}"/>" class="btn btn-primary btn-icon-split">
                                                     <span class="icon text-white-50">
                                                         <i class="fas fa-flag"></i>
                                                     </span>

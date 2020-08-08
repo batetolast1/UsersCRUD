@@ -44,6 +44,26 @@
 
                             <!-- Content goes here! -->
 
+                            <%--@elvariable id="user" type="pl.coderslab.jeeusercrud.entity.User"--%>
+                            <form method="post">
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input type="text" class="form-control" name="username" id="username"
+                                           value="${user.userName}" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email address</label>
+                                    <input type="email" class="form-control" name="email" id="email"
+                                           value="${user.email}" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" name="password" id="password"
+                                           placeholder="Enter new password" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Edit</button>
+                            </form>
+
                         </div>
                     </div>
                     <!-- End of users tab -->

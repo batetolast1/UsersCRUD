@@ -19,10 +19,6 @@ public class UserAdd extends HttpServlet {
         String userName = request.getParameter("username");
         String password = request.getParameter("password");
 
-        System.out.println(email);
-        System.out.println(userName);
-        System.out.println(password);
-
         User user = new User.Builder(0)
                 .withEmail(email)
                 .withUserName(userName)
