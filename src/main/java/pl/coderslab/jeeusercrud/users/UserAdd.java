@@ -28,8 +28,7 @@ public class UserAdd extends HttpServlet {
         // @todo add data validation, add popup with result info
         user = userDao.create(user);
 
-        //response.sendRedirect(request.getContextPath() + "/user/list");
-        getServletContext().getRequestDispatcher("/user/list").forward(request, response);
+        response.sendRedirect(request.getContextPath() + "/user/list");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

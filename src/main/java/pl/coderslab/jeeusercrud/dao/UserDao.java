@@ -7,6 +7,8 @@ import pl.coderslab.jeeusercrud.utils.DbUtil;
 import java.sql.*;
 import java.util.Arrays;
 
+// @todo clean unused methods, change return type to int (to use in modals)
+
 public class UserDao {
     private static final String CREATE_USER_QUERY =
             "INSERT INTO `users`(`email`, `username`, `password`) VALUES (?, ?, ?)";
