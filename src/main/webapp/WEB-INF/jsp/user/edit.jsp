@@ -46,6 +46,7 @@
 
                             <%--@elvariable id="user" type="pl.coderslab.jeeusercrud.entity.User"--%>
                             <form method="post">
+                                <input type="hidden" name="id" value="${user.id}"/>
                                 <div class="form-group">
                                     <label for="username">Username</label>
                                     <input type="text" class="form-control" name="username" id="username"
@@ -61,7 +62,14 @@
                                     <input type="password" class="form-control" name="password" id="password"
                                            placeholder="Enter new password" required>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Edit</button>
+                                <button type="submit" class="btn btn-success btn-icon-split">
+                                    <span class="icon text-white-50"><i class="fas fa-flag"></i></span>
+                                    <span class="text">Edit</span>
+                                </button>
+                                <a href="<c:url value="/user/list"/>" class="btn btn-secondary btn-icon-split">
+                                    <span class="icon text-white-50"><i class="fas fa-flag"></i></span>
+                                    <span class="text">Cancel</span>
+                                </a>
                             </form>
 
                         </div>

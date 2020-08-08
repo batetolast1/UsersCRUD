@@ -63,7 +63,7 @@
                                             <td>${user.email}</td>
                                             <td>${user.userName}</td>
                                             <td>
-                                                <a href="<c:url value="/user/delete"/>" class="btn btn-warning btn-icon-split">
+                                                <a href="<c:url value="/user/delete?id=${user.id}"/>" class="btn btn-warning btn-icon-split">
                                                     <span class="icon text-white-50">
                                                         <i class="fas fa-flag"></i>
                                                     </span>
@@ -75,7 +75,7 @@
                                                     </span>
                                                     <span class="text">Edit</span>
                                                 </a>
-                                                <a href="<c:url value="/user/show"/>" class="btn btn-info btn-icon-split">
+                                                <a href="<c:url value="/user/show?id=${user.id}"/>" class="btn btn-info btn-icon-split">
                                                     <span class="icon text-white-50">
                                                         <i class="fas fa-flag"></i>
                                                     </span>
