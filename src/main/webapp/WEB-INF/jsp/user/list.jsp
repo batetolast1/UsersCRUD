@@ -8,7 +8,7 @@
     <!-- head tags -->
     <%@ include file="/WEB-INF/jsp/user/head.jsp" %>
 
-    <title>UsersCRUD</title>
+    <title>UsersCRUD - all users</title>
 
 </head>
 
@@ -63,19 +63,19 @@
                                             <td>${user.email}</td>
                                             <td>${user.userName}</td>
                                             <td>
-                                                <a href="#" class="btn btn-warning btn-icon-split">
+                                                <a href="<c:url value="/user/delete"/>" class="btn btn-warning btn-icon-split">
                                                     <span class="icon text-white-50">
                                                         <i class="fas fa-flag"></i>
                                                     </span>
                                                     <span class="text">Delete</span>
                                                 </a>
-                                                <a href="#" class="btn btn-primary btn-icon-split">
+                                                <a href="<c:url value="/user/edit"/>" class="btn btn-primary btn-icon-split">
                                                     <span class="icon text-white-50">
                                                         <i class="fas fa-flag"></i>
                                                     </span>
                                                     <span class="text">Edit</span>
                                                 </a>
-                                                <a href="#" class="btn btn-info btn-icon-split">
+                                                <a href="<c:url value="/user/show"/>" class="btn btn-info btn-icon-split">
                                                     <span class="icon text-white-50">
                                                         <i class="fas fa-flag"></i>
                                                     </span>
