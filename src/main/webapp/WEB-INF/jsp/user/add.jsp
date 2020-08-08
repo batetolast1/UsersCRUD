@@ -60,8 +60,16 @@
                                     <input type="password" class="form-control" name="password" id="password"
                                            placeholder="Enter password" required>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="submit" class="btn btn-success btn-icon-split">
+                                    <span class="icon text-white-50"><i class="fas fa-flag"></i></span>
+                                    <span class="text">Save</span>
+                                </button>
+                                <a href="<c:url value="/user/list"/>" class="btn btn-secondary btn-icon-split">
+                                    <span class="icon text-white-50"><i class="fas fa-flag"></i></span>
+                                    <span class="text">Cancel</span>
+                                </a>
                             </form>
+                            <!-- End of content -->
 
                         </div>
                     </div>

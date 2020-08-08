@@ -71,6 +71,7 @@
                                     <span class="text">Cancel</span>
                                 </a>
                             </form>
+                            <!-- End of content -->
 
                         </div>
                     </div>

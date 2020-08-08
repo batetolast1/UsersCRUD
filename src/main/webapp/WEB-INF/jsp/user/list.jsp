@@ -44,7 +44,6 @@
 
                             <!-- Content goes here! -->
 
-                            <!-- Table -->
                             <table class="table">
                                 <thead>
                                 <tr>
@@ -56,12 +55,12 @@
                                 </thead>
 
                                 <tbody>
-                                <%--@elvariable id="users" type="java.util.Arrays"--%>
+                                <%--@elvariable id="users" type="java.util.Arrays[User]"--%>
                                     <c:forEach var="user" items="${users}">
                                         <tr>
                                             <th scope="row">${user.id}</th>
-                                            <td>${user.email}</td>
                                             <td>${user.userName}</td>
+                                            <td>${user.email}</td>
                                             <td>
                                                 <a href="<c:url value="/user/delete?id=${user.id}"/>" class="btn btn-warning btn-icon-split">
                                                     <span class="icon text-white-50">
@@ -86,7 +85,7 @@
                                     </c:forEach>
                                 </tbody>
                             </table>
-                            <!-- End of table -->
+                            <!-- End of content -->
 
                         </div>
                     </div>
