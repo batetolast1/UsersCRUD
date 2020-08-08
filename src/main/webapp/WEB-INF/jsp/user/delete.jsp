@@ -44,6 +44,34 @@
 
                             <!-- Content goes here! -->
 
+                            <%--@elvariable id="user" type="pl.coderslab.jeeusercrud.entity.User"--%>
+                            <form method="post">
+                                <input type="hidden" name="id" value="${user.id}"/>
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input type="text" class="form-control" name="username" id="username"
+                                           value="${user.userName}" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email address</label>
+                                    <input type="email" class="form-control" name="email" id="email"
+                                           value="${user.email}" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" name="password" id="password"
+                                           placeholder="******************" readonly>
+                                </div>
+                                <button type="submit" class="btn btn-danger btn-icon-split">
+                                    <span class="icon text-white-50"><i class="fas fa-flag"></i></span>
+                                    <span class="text">Delete</span>
+                                </button>
+                                <a href="<c:url value="/user/list"/>" class="btn btn-secondary btn-icon-split">
+                                    <span class="icon text-white-50"><i class="fas fa-flag"></i></span>
+                                    <span class="text">Cancel</span>
+                                </a>
+                            </form>
+
                         </div>
                     </div>
                     <!-- End of users tab -->
