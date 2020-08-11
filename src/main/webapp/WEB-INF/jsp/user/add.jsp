@@ -69,11 +69,11 @@
                                     <span class="text">Cancel</span>
                                 </a>
                             </form>
-                            <!-- End of content -->
+                            <!-- End of Content -->
 
                         </div>
                     </div>
-                    <!-- End of users tab -->
+                    <!-- End of Content tab -->
 
                 </div>
                 <!-- /.container-fluid -->
