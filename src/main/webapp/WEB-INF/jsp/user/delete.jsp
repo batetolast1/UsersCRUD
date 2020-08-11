@@ -6,7 +6,7 @@
 <head>
 
     <!-- head tags -->
-    <%@ include file="/WEB-INF/jsp/user/head.jsp" %>
+    <%@ include file="/WEB-INF/jsp/template/head.jsp" %>
 
     <title>UsersCRUD - delete user</title>
 
@@ -18,7 +18,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <%@ include file="/WEB-INF/jsp/user/sidebar.jsp" %>
+        <%@ include file="/WEB-INF/jsp/template/sidebar.jsp" %>
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -27,13 +27,13 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <%@ include file="/WEB-INF/jsp/user/topbar.jsp" %>
+                <%@ include file="/WEB-INF/jsp/template/topbar.jsp" %>
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <%@ include file="/WEB-INF/jsp/user/pageHeading.jsp" %>
+                    <%@ include file="/WEB-INF/jsp/template/pageHeading.jsp" %>
 
                     <!-- Content Card -->
                     <div class="card shadow mb-4">
@@ -84,7 +84,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <%@ include file="/WEB-INF/jsp/user/footer.jsp" %>
+            <%@ include file="/WEB-INF/jsp/template/footer.jsp" %>
 
         </div>
         <!-- End of Content Wrapper -->
@@ -93,10 +93,10 @@
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->
-    <%@ include file="/WEB-INF/jsp/user/scrollToTop.jsp" %>
+    <%@ include file="/WEB-INF/jsp/template/scrollToTop.jsp" %>
 
     <!-- All used scripts-->
-    <%@ include file="/WEB-INF/jsp/user/scripts.jsp" %>
+    <%@ include file="/WEB-INF/jsp/template/scripts.jsp" %>
 
 </body>
 
