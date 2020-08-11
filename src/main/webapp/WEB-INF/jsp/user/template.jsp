@@ -44,9 +44,11 @@
 
                             <!-- Content goes here! -->
 
+                            <!-- End of Content -->
+
                         </div>
                     </div>
-                    <!-- End of users tab -->
+                    <!-- End of Content card -->
 
                 </div>
                 <!-- /.container-fluid -->
