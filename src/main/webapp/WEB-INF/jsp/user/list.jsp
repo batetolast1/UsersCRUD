@@ -35,6 +35,20 @@
                     <!-- Page Heading -->
                     <%@ include file="/WEB-INF/jsp/template/pageHeading.jsp" %>
 
+                    <!-- Bootstrap Alert for logging -->
+                    <c:if test="${'success'.equals(sessionScope.login)}">
+                        <c:remove var="edit" scope="session"/>
+
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>Success</strong> Login successful!
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>0
+
+                    </c:if>
+                    <!-- End of Bootstrap Alert -->
+
                     <!-- Bootstrap Alert for creating new user -->
                     <c:if test="${'success'.equals(sessionScope.add)}">
                         <c:remove var="add" scope="session"/>

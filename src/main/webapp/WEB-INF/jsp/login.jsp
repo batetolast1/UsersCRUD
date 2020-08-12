@@ -28,6 +28,21 @@
                             <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
                             <div class="col-lg-6">
                                 <div class="p-5">
+
+                                    <!-- Bootstrap Alert for logging -->
+                                    <c:if test="${'fail'.equals(sessionScope.login)}">
+                                        <c:remove var="edit" scope="session"/>
+
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                            <strong>Error</strong> Login failed, try again!
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+
+                                    </c:if>
+                                    <!-- End of Bootstrap Alert -->
+
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>

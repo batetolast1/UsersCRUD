@@ -23,15 +23,16 @@ public class Login extends HttpServlet {
 
         HttpSession httpSession = request.getSession();
         if (password.equals(admin.getPassword())) {
-            httpSession.setAttribute("admin", admin);
+            httpSession.setAttribute("login", "success");
             response.sendRedirect(request.getContextPath() + "/user/list");
         } else {
-            httpSession.setAttribute("admin", null);
+            httpSession.setAttribute("login", "fail");
             response.sendRedirect(request.getContextPath() + "login");
         }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // TODO add redirect after logging
         getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
     }
 }
