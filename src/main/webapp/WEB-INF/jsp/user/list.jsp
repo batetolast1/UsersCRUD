@@ -35,12 +35,26 @@
                     <!-- Page Heading -->
                     <%@ include file="/WEB-INF/jsp/template/pageHeading.jsp" %>
 
-                    <!-- Bootstrap Alert -->
+                    <!-- Bootstrap Alert for creating new user -->
                     <c:if test="${'success'.equals(sessionScope.add)}">
                         <c:remove var="add" scope="session"/>
 
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>Success</strong> New user added to database!
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                    </c:if>
+                    <!-- End of Bootstrap Alert -->
+
+                    <!-- Bootstrap Alert for updating user -->
+                    <c:if test="${'success'.equals(sessionScope.edit)}">
+                        <c:remove var="edit" scope="session"/>
+
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>Success</strong> User data updated!
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -57,10 +71,6 @@
                         <div class="card-body">
 
                             <!-- Content goes here! -->
-
-                            <div class="alert alert-success" role="alert">
-                                User created!
-                            </div>
 
                             <table class="table">
                                 <thead>

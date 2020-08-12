@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "UserEdit", value = "/user/edit")
@@ -29,9 +30,17 @@ public class UserEdit extends HttpServlet {
                 .withPassword(password)
                 .build();
 
-        userDao.update(user);
+        int updateCount = userDao.update(user);
 
-        response.sendRedirect(request.getContextPath() + "/user/list");
+        HttpSession session = request.getSession();
+
+        if (updateCount > 0) {
+            session.setAttribute("edit", "success");
+            response.sendRedirect(request.getContextPath() + "/user/list");
+        } else {
+            session.setAttribute("edit", "fail");
+            response.sendRedirect(request.getContextPath() + "/user/edit?id=" + id);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
