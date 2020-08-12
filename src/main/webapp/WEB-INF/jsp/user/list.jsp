@@ -63,6 +63,20 @@
                     </c:if>
                     <!-- End of Bootstrap Alert -->
 
+                    <!-- Bootstrap Alert for deleting user -->
+                    <c:if test="${'success'.equals(sessionScope.delete)}">
+                        <c:remove var="delete" scope="session"/>
+
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>Success</strong> User was deleted!
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                    </c:if>
+                    <!-- End of Bootstrap Alert -->
+
                     <!-- Users Card -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">

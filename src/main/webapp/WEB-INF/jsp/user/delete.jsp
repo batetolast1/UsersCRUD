@@ -35,6 +35,20 @@
                     <!-- Page Heading -->
                     <%@ include file="/WEB-INF/jsp/template/pageHeading.jsp" %>
 
+                    <!-- Bootstrap Alert for deleting user -->
+                    <c:if test="${'success'.equals(sessionScope.delete)}">
+                        <c:remove var="delete" scope="session"/>
+
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>Error</strong> User was not deleted!
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                    </c:if>
+                    <!-- End of Bootstrap Alert -->
+
                     <!-- Content Card -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
