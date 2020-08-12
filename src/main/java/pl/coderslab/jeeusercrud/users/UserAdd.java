@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "UserAdd", value = "/user/add")
@@ -28,7 +29,15 @@ public class UserAdd extends HttpServlet {
         // @todo add data validation, add popup with result info
         user = userDao.create(user);
 
-        response.sendRedirect(request.getContextPath() + "/user/list");
+        HttpSession httpSession = request.getSession();
+
+        if (user != null) {
+            httpSession.setAttribute("add", "success");
+            response.sendRedirect(request.getContextPath() + "/user/list");
+        } else {
+            httpSession.setAttribute("add", "fail");
+            response.sendRedirect(request.getContextPath() + "/user/add");
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

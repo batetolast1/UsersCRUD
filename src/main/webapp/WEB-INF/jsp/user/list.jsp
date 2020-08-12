@@ -35,6 +35,20 @@
                     <!-- Page Heading -->
                     <%@ include file="/WEB-INF/jsp/template/pageHeading.jsp" %>
 
+                    <!-- Bootstrap Alert -->
+                    <c:if test="${'success'.equals(sessionScope.add)}">
+                        <c:remove var="add" scope="session"/>
+
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>Success</strong> New user added to database!
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                    </c:if>
+                    <!-- End of Bootstrap Alert -->
+
                     <!-- Users Card -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">

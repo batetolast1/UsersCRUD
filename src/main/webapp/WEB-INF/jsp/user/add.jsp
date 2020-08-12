@@ -35,6 +35,20 @@
                     <!-- Page Heading -->
                     <%@ include file="/WEB-INF/jsp/template/pageHeading.jsp" %>
 
+                    <!-- Bootstrap Alert -->
+                    <c:if test="${'fail'.equals(sessionScope.add)}">
+                        <c:remove var="add" scope="session"/>
+
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>Error</strong> User with provided e-mail address already exists!
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                    </c:if>
+                    <!-- End of Bootstrap Alert -->
+
                     <!-- Content Card -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
@@ -43,6 +57,7 @@
                         <div class="card-body">
 
                             <!-- Content goes here! -->
+
 
                             <form method="post">
                                 <div class="form-group">
