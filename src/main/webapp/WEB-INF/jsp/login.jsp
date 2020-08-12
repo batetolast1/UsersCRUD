@@ -12,73 +12,56 @@
 
 </head>
 
-<body id="page-top">
+<body class="bg-gradient-primary">
 
-    <!-- Page Wrapper -->
-    <div id="wrapper">
+    <div class="container">
 
-        <!-- Sidebar -->
-        <%@ include file="/WEB-INF/jsp/template/sidebar.jsp" %>
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
 
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
+            <div class="col-xl-10 col-lg-12 col-md-9">
 
-            <!-- Main Content -->
-            <div id="content">
-
-                <!-- Topbar -->
-                <%@ include file="/WEB-INF/jsp/template/topbar.jsp" %>
-
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-                    <!-- Content Card -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">ADMIN LOGIN</h6>
-                        </div>
-                        <div class="card-body">
-
-                            <!-- Content goes here! -->
-                            <form method="post">
-                                <div class="form-group">
-                                    <label for="email">Email address</label>
-                                    <input type="email" class="form-control" name="email" id="email"
-                                           placeholder="Enter e-mail" required>
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                    </div>
+                                    <form class="user" method="post">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control form-control-user"
+                                                   id="exampleInputEmail" name="email" aria-describedby="emailHelp"
+                                                   placeholder="Enter Email Address...">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user"
+                                                   id="exampleInputPassword" name="password" placeholder="Password">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">
+                                            <span class="text">Login</span>
+                                        </button>
+                                    </form>
+                                    <hr>
+                                    <div class="container my-auto">
+                                        <div class="copyright text-center my-auto">
+                                            <span>Copyright &copy; Bartosz Robakowski 2020</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input type="password" class="form-control" name="password" id="password"
-                                           placeholder="Enter password" required>
-                                </div>
-                                <button type="submit" class="btn btn-success btn-icon-split">
-                                    <span class="icon text-white-50"><i class="fas fa-flag"></i></span>
-                                    <span class="text">Save</span>
-                                </button>
-                            </form>
-
-
+                            </div>
                         </div>
                     </div>
-                    <!-- End of users tab -->
-
                 </div>
-                <!-- /.container-fluid -->
 
             </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <%@ include file="/WEB-INF/jsp/template/footer.jsp" %>
 
         </div>
-        <!-- End of Content Wrapper -->
 
     </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <%@ include file="/WEB-INF/jsp/template/scrollToTop.jsp" %>
 
     <!-- All used scripts-->
     <%@ include file="/WEB-INF/jsp/template/scripts.jsp" %>
