@@ -11,36 +11,24 @@ public class User {
     private User() {
     }
 
-    public int getId() {
-        return id;
+    public static NeedId builder() {
+        return new Builder();
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getId() {
+        return id;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getUserName() {
         return userName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
     public String getPassword() {
         return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     @Override
@@ -57,31 +45,61 @@ public class User {
         return BCrypt.checkpw(passwordToCheck, password);
     }
 
-    public static class Builder {
+    // Foolproof API design of User class
+
+    public interface NeedId {
+        NeedEmail id(int id);
+    }
+
+    public interface NeedEmail {
+        NeedUserName email(String email);
+    }
+
+    public interface NeedUserName {
+        NeedPassword userName(String userName);
+    }
+
+    public interface NeedPassword {
+        CanBeBuild password(String password);
+    }
+
+    public interface CanBeBuild {
+        User build();
+    }
+
+    // Inner Static Fluent Builder
+
+    public static class Builder implements NeedId, NeedEmail, NeedUserName, NeedPassword, CanBeBuild {
         private int id;
         private String email;
         private String userName;
         private String password;
 
-        public Builder(int id) {
+        @Override
+        public Builder id(int id) {
             this.id = id;
+            return this;
         }
 
-        public Builder withEmail(String email) {
+        @Override
+        public Builder email(String email) {
             this.email = email;
             return this;
         }
 
-        public Builder withUserName(String userName) {
+        @Override
+        public Builder userName(String userName) {
             this.userName = userName;
             return this;
         }
 
-        public Builder withPassword(String password) {
+        @Override
+        public Builder password(String password) {
             this.password = password;
             return this;
         }
 
+        @Override
         public User build() {
             User user = new User();
             user.id = this.id;
