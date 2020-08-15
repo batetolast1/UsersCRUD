@@ -1,5 +1,7 @@
 package pl.coderslab.jeeusercrud.entity;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 public class Admin {
     private int id;
     private String email;
@@ -8,9 +10,11 @@ public class Admin {
     private Admin() {
     }
 
-    public String getPassword() {
-        return password;
+    public boolean checkPasswordMatch(String passwordToCheck) {
+        return BCrypt.checkpw(passwordToCheck, password);
     }
+
+    // TODO create superclass
 
     public static class Builder {
         private int id;

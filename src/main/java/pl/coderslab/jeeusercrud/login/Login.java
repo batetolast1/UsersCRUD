@@ -32,7 +32,7 @@ public class Login extends HttpServlet {
             logger.warn("Login attempt for admin {} failed", email);
             session.setAttribute("login", "fail");
             response.sendRedirect(request.getContextPath() + "login");
-        } else if (!password.equals(admin.getPassword())){
+        } else if (!admin.checkPasswordMatch(password)){
             logger.warn("Login attempt for admin {} failed, password didn't match", email);
             session.setAttribute("login", "passwordMismatch");
             response.sendRedirect(request.getContextPath() + "login");
