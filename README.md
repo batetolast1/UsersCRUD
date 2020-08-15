@@ -29,6 +29,7 @@ Libraries used:
 - MySQL Connector/J (https://mvnrepository.com/artifact/mysql/mysql-connector-java) - connection to database
 - Java Servlet API - (https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api) - servlets support
 - JSTL (https://mvnrepository.com/artifact/javax.servlet/jslt/1.2) - JSTL support
+- Log4j2 API, Core, Web (https://mvnrepository.com/artifact/org.apache.logging.log4j) + LMAX Disruptor (https://mvnrepository.com/artifact/com.lmax/disruptor)
 
 # Copyright
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
