@@ -21,18 +21,20 @@ public class Login extends HttpServlet {
 
         Admin admin = adminDao.read(email);
 
-        HttpSession httpSession = request.getSession();
-        if (password.equals(admin.getPassword())) {
-            httpSession.setAttribute("login", "success");
-            response.sendRedirect(request.getContextPath() + "/user/list");
-        } else {
-            httpSession.setAttribute("login", "fail");
+        HttpSession session = request.getSession(false);
+
+        if (admin == null || !password.equals(admin.getPassword())) {
+            session.setAttribute("login", "fail");
             response.sendRedirect(request.getContextPath() + "login");
+        } else {
+            session.setAttribute("adminEmail", email);
+            session.setAttribute("login", "success");
+            response.sendRedirect(request.getContextPath() + "/user/list");
         }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO add redirect after logging
+        // TODO add redirect after logging;
         getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
     }
 }
