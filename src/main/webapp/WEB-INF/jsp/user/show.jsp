@@ -62,8 +62,8 @@
                                 </tbody>
                             </table>
 
-                            <a href="<c:url value="/user/list"/>" class="btn btn-primary btn-icon-split">
-                                <span class="icon text-white-50"><i class="fas fa-flag"></i></span>
+                            <a href="<c:url value="/user/list"/>" class="btn btn-light btn-icon-split">
+                                <span class="icon text-white-50"><i class="fas fa-arrow-circle-left"></i></span>
                                 <span class="text">Return</span>
                             </a>
                             <!-- End of content -->

@@ -37,7 +37,7 @@
 
                     <!-- Bootstrap Alert for logging -->
                     <c:if test="${'success'.equals(sessionScope.login)}">
-                        <c:remove var="edit" scope="session"/>
+                        <c:remove var="login" scope="session"/>
 
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>Success</strong> Login successful!
@@ -118,21 +118,21 @@
                                             <td>${user.userName}</td>
                                             <td>${user.email}</td>
                                             <td>
-                                                <a href="<c:url value="/user/delete?id=${user.id}"/>" class="btn btn-warning btn-icon-split">
+                                                <a href="<c:url value="/user/delete?id=${user.id}"/>" class="btn btn-danger btn-icon-split">
                                                     <span class="icon text-white-50">
-                                                        <i class="fas fa-flag"></i>
+                                                        <i class="fas fa-trash"></i>
                                                     </span>
                                                     <span class="text">Delete</span>
                                                 </a>
-                                                <a href="<c:url value="/user/edit?id=${user.id}"/>" class="btn btn-primary btn-icon-split">
+                                                <a href="<c:url value="/user/edit?id=${user.id}"/>" class="btn btn-warning btn-icon-split">
                                                     <span class="icon text-white-50">
-                                                        <i class="fas fa-flag"></i>
+                                                        <i class="fas fa-edit"></i>
                                                     </span>
                                                     <span class="text">Edit</span>
                                                 </a>
                                                 <a href="<c:url value="/user/show?id=${user.id}"/>" class="btn btn-info btn-icon-split">
                                                     <span class="icon text-white-50">
-                                                        <i class="fas fa-flag"></i>
+                                                        <i class="fas fa-info-circle"></i>
                                                     </span>
                                                     <span class="text">Details</span>
                                                 </a>

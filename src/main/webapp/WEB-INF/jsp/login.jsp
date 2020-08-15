@@ -43,6 +43,19 @@
                                     </c:if>
                                     <!-- End of Bootstrap Alert -->
 
+                                    <!-- Bootstrap Alert for logging -->
+                                    <c:if test="${'logout'.equals(sessionScope.login)}">
+
+                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                            <strong>Success</strong> You were successfully logged out!
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+
+                                    </c:if>
+                                    <!-- End of Bootstrap Alert -->
+
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>

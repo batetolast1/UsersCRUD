@@ -76,11 +76,11 @@
                                            placeholder="Enter password" required>
                                 </div>
                                 <button type="submit" class="btn btn-success btn-icon-split">
-                                    <span class="icon text-white-50"><i class="fas fa-flag"></i></span>
+                                    <span class="icon text-white-50"><i class="fas fa-user-plus"></i></span>
                                     <span class="text">Save</span>
                                 </button>
-                                <a href="<c:url value="/user/list"/>" class="btn btn-secondary btn-icon-split">
-                                    <span class="icon text-white-50"><i class="fas fa-flag"></i></span>
+                                <a href="<c:url value="/user/list"/>" class="btn btn-light btn-icon-split">
+                                    <span class="icon text-white-50"><i class="fas fa-arrow-circle-left"></i></span>
                                     <span class="text">Cancel</span>
                                 </a>
                             </form>
