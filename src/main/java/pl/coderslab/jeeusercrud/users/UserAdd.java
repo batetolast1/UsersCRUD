@@ -20,10 +20,11 @@ public class UserAdd extends HttpServlet {
         String userName = request.getParameter("username");
         String password = request.getParameter("password");
 
-        User user = new User.Builder(0)
-                .withEmail(email)
-                .withUserName(userName)
-                .withPassword(password)
+        User user = new User.Builder()
+                .id(0)
+                .email(email)
+                .userName(userName)
+                .password(password)
                 .build();
 
         // @todo add data validation, add popup with result info

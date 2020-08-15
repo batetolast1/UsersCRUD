@@ -24,10 +24,11 @@ public class UserEdit extends HttpServlet {
 
         // @todo add data validation, add popup with result info
 
-        User user = new User.Builder(parsedId)
-                .withEmail(email)
-                .withUserName(userName)
-                .withPassword(password)
+        User user = new User.Builder()
+                .id(parsedId)
+                .email(email)
+                .userName(userName)
+                .password(password)
                 .build();
 
         int updateCount = userDao.update(user);

@@ -28,9 +28,16 @@ public class UserDao {
             statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
             if (resultSet.next()) {
-                user.setId(resultSet.getInt(1));
+                int id = resultSet.getInt(1);
+                return new User.Builder()
+                        .id(id)
+                        .email(user.getEmail())
+                        .userName(user.getUserName())
+                        .password(user.getPassword())
+                        .build();
+            } else {
+                return null;
             }
-            return user;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return null;
@@ -69,10 +76,11 @@ public class UserDao {
     }
 
     private User generateUserFrom(ResultSet resultSet) throws SQLException {
-        return new User.Builder(resultSet.getInt("id"))
-                .withEmail(resultSet.getString("email"))
-                .withUserName(resultSet.getString("username"))
-                .withPassword(resultSet.getString("password"))
+        return new User.Builder()
+                .id(resultSet.getInt("id"))
+                .email(resultSet.getString("email"))
+                .userName(resultSet.getString("username"))
+                .password(resultSet.getString("password"))
                 .build();
     }
 
