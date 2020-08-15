@@ -3,6 +3,7 @@ This web app allows admins to store and manage users' accounts data in MySQL dat
 
 # Content
 What you can do:
+- login and logout to admin panel using admin's credentials
 - create new user
 - show user's data
 - edit user's data
@@ -21,6 +22,7 @@ Technologies used:
 - JSTL
 - MySQL
 - Maven
+- Log4j2 + LMAX Disruptor for async logging
 
 Libraries used:
 - JBCrypt(https://mvnrepository.com/artifact/org.mindrot/jbcrypt) - password encryption/decryption
