@@ -1,5 +1,7 @@
 package pl.coderslab.jeeusercrud.dao;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import pl.coderslab.jeeusercrud.entity.Admin;
 import pl.coderslab.jeeusercrud.utils.DbUtil;
 
@@ -10,16 +12,23 @@ import java.sql.SQLException;
 
 public class AdminDao {
     private static final String READ_ADMIN_QUERY = "SELECT * FROM `admins` WHERE `email` = ?";
+    private static final Logger logger = LogManager.getLogger(AdminDao.class);
 
     public Admin read(String email) {
         try (Connection connection = DbUtil.getConnection();
              PreparedStatement statement = getReadStatement(connection, email)) {
             ResultSet resultSet = statement.executeQuery();
+            Admin admin;
             if (resultSet.next()) {
-                return generateAdminFrom(resultSet);
+                logger.info("Admin {} data retrieved", email);
+                admin = generateAdminFrom(resultSet);
+            } else {
+                logger.warn("Admin {} data not in database", email);
+                admin = null;
             }
+            return admin;
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            logger.atError().withThrowable(e).log("Unable to process request due to {}, {}", e.getErrorCode(), e.getMessage());
         }
         return null;
     }

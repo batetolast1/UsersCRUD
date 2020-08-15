@@ -1,5 +1,7 @@
 package pl.coderslab.jeeusercrud.login;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import pl.coderslab.jeeusercrud.dao.AdminDao;
 import pl.coderslab.jeeusercrud.entity.Admin;
 
@@ -13,6 +15,9 @@ import java.io.IOException;
 
 @WebServlet(name = "Login", value = {"", "/login"})
 public class Login extends HttpServlet {
+
+    private static final Logger logger = LogManager.getLogger(Login.class);
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         AdminDao adminDao = new AdminDao();
 
@@ -23,10 +28,16 @@ public class Login extends HttpServlet {
 
         HttpSession session = request.getSession(false);
 
-        if (admin == null || !password.equals(admin.getPassword())) {
+        if (admin == null) {
+            logger.warn("Login attempt for admin {} failed", email);
             session.setAttribute("login", "fail");
             response.sendRedirect(request.getContextPath() + "login");
-        } else {
+        } else if (!password.equals(admin.getPassword())){
+            logger.warn("Login attempt for admin {} failed, password didn't match", email);
+            session.setAttribute("login", "passwordMismatch");
+            response.sendRedirect(request.getContextPath() + "login");
+        } else{
+            logger.info("Login attempt for admin {} successful", email);
             session.setAttribute("adminEmail", email);
             session.setAttribute("login", "success");
             response.sendRedirect(request.getContextPath() + "/user/list");

@@ -44,6 +44,20 @@
                                     <!-- End of Bootstrap Alert -->
 
                                     <!-- Bootstrap Alert for logging -->
+                                    <c:if test="${'passwordMismatch'.equals(sessionScope.login)}">
+                                        <c:remove var="edit" scope="session"/>
+
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                            <strong>Error</strong> Password didn't match, try again!
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+
+                                    </c:if>
+                                    <!-- End of Bootstrap Alert -->
+
+                                    <!-- Bootstrap Alert for logging -->
                                     <c:if test="${'logout'.equals(sessionScope.login)}">
 
                                         <div class="alert alert-success alert-dismissible fade show" role="alert">
