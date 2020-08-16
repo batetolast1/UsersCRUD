@@ -4,17 +4,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class PasswordValidator {
-    // 6 to 20 characters string with at least one digit, one upper case letter, one lower case letter and one special symbol (“@#$%”)
-    private static final String PASSWORD_PATTERN = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})";
-    private Pattern pattern;
-    private Matcher matcher;
+    // password must be 8-20 characters long with at least one digit, one upper case letter, one lower case letter, one special symbol and no spaces
+    private static final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9$&+,:;=?@#|'\"<>.^*()%!-](?=\\S+$).{8,20}$";
+    private static final Pattern PATTERN = Pattern.compile(PASSWORD_PATTERN);
 
-    public PasswordValidator() {
-        pattern = Pattern.compile(PASSWORD_PATTERN);
-    }
-
-    public boolean validate(final String password) {
-        matcher = pattern.matcher(password);
+    public static boolean validate(String password) {
+        Matcher matcher = PATTERN.matcher(password);
         return matcher.matches();
     }
 }
