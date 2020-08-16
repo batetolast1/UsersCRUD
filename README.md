@@ -11,6 +11,9 @@ What you can do:
 
 # Additional information
 
+Sample data: [sql.dump](../blob/master/LICENSE)
+
+
 Design patterns used:
 - DAO
 - builder
