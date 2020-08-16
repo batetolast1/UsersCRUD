@@ -23,10 +23,9 @@ public class AdminDao {
                 return generateAdminFrom(resultSet);
             } else {
                 LOGGER.warn("Admin {} data not in database", email);
-                return null;
             }
         } catch (SQLException e) {
-            LOGGER.atError().withThrowable(e).log("Unable to process request due to {}, {}", e.getErrorCode(), e.getMessage());
+            LOGGER.error("Unable to process SQL query due to {}, {}", e.getErrorCode(), e.getMessage());
         }
         return null;
     }
