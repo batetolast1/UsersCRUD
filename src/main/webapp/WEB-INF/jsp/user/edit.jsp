@@ -35,19 +35,8 @@
                     <!-- Page Heading -->
                     <%@ include file="/WEB-INF/jsp/template/pageHeading.jsp" %>
 
-                    <!-- Bootstrap Alert for updating user -->
-                    <c:if test="${'fail'.equals(sessionScope.edit)}">
-                        <c:remove var="edit" scope="session"/>
-
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <strong>Error</strong> User data was not updated!
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-
-                    </c:if>
-                    <!-- End of Bootstrap Alert -->
+                    <!-- Alert -->
+                    <%@ include file="/WEB-INF/jsp/template/alert.jsp" %>
 
                     <!-- Content Card -->
                     <div class="card shadow mb-4">

@@ -35,61 +35,8 @@
                     <!-- Page Heading -->
                     <%@ include file="/WEB-INF/jsp/template/pageHeading.jsp" %>
 
-                    <!-- Bootstrap Alert for logging -->
-                    <c:if test="${'success'.equals(sessionScope.login)}">
-                        <c:remove var="login" scope="session"/>
-
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>Success</strong> Login successful!
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-
-                    </c:if>
-                    <!-- End of Bootstrap Alert -->
-
-                    <!-- Bootstrap Alert for creating new user -->
-                    <c:if test="${'success'.equals(sessionScope.add)}">
-                        <c:remove var="add" scope="session"/>
-
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>Success</strong> New user added to database!
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-
-                    </c:if>
-                    <!-- End of Bootstrap Alert -->
-
-                    <!-- Bootstrap Alert for updating user -->
-                    <c:if test="${'success'.equals(sessionScope.edit)}">
-                        <c:remove var="edit" scope="session"/>
-
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>Success</strong> User data updated!
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-
-                    </c:if>
-                    <!-- End of Bootstrap Alert -->
-
-                    <!-- Bootstrap Alert for deleting user -->
-                    <c:if test="${'success'.equals(sessionScope.delete)}">
-                        <c:remove var="delete" scope="session"/>
-
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>Success</strong> User was deleted!
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-
-                    </c:if>
-                    <!-- End of Bootstrap Alert -->
+                    <!-- Alert -->
+                    <%@ include file="/WEB-INF/jsp/template/alert.jsp" %>
 
                     <!-- Users Card -->
                     <div class="card shadow mb-4">
@@ -111,7 +58,7 @@
                                 </thead>
 
                                 <tbody>
-                                <%--@elvariable id="users" type="java.util.Arrays[User]"--%>
+                                <%--@elvariable id="users" type="java.util.List"--%>
                                     <c:forEach var="user" items="${users}">
                                         <tr>
                                             <th scope="row">${user.id}</th>

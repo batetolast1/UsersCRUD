@@ -35,6 +35,9 @@
                     <!-- Page Heading -->
                     <%@ include file="/WEB-INF/jsp/template/pageHeading.jsp" %>
 
+                    <!-- Alert -->
+                    <%@ include file="/WEB-INF/jsp/template/alert.jsp" %>
+
                     <!-- Content Card -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
