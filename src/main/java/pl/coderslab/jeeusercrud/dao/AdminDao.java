@@ -12,23 +12,21 @@ import java.sql.SQLException;
 
 public class AdminDao {
     private static final String READ_ADMIN_QUERY = "SELECT * FROM `admins` WHERE `email` = ?";
-    private static final Logger logger = LogManager.getLogger(AdminDao.class);
+    private static final Logger LOGGER = LogManager.getLogger(AdminDao.class);
 
     public Admin read(String email) {
         try (Connection connection = DbUtil.getConnection();
              PreparedStatement statement = getReadStatement(connection, email)) {
             ResultSet resultSet = statement.executeQuery();
-            Admin admin;
             if (resultSet.next()) {
-                logger.info("Admin {} data retrieved", email);
-                admin = generateAdminFrom(resultSet);
+                LOGGER.info("Admin {} data retrieved", email);
+                return generateAdminFrom(resultSet);
             } else {
-                logger.warn("Admin {} data not in database", email);
-                admin = null;
+                LOGGER.warn("Admin {} data not in database", email);
+                return null;
             }
-            return admin;
         } catch (SQLException e) {
-            logger.atError().withThrowable(e).log("Unable to process request due to {}, {}", e.getErrorCode(), e.getMessage());
+            LOGGER.atError().withThrowable(e).log("Unable to process request due to {}, {}", e.getErrorCode(), e.getMessage());
         }
         return null;
     }
@@ -40,9 +38,10 @@ public class AdminDao {
     }
 
     private Admin generateAdminFrom(ResultSet resultSet) throws SQLException {
-        return new Admin.Builder(resultSet.getInt("id"))
-                .withEmail(resultSet.getString("email"))
-                .withPassword(resultSet.getString("password"))
+        return new Admin.Builder()
+                .id(resultSet.getInt("id"))
+                .email(resultSet.getString("email"))
+                .password(resultSet.getString("password"))
                 .build();
     }
 }
