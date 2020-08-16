@@ -1,7 +1,9 @@
 package pl.coderslab.jeeusercrud.users;
 
 import pl.coderslab.jeeusercrud.dao.UserDao;
+import pl.coderslab.jeeusercrud.entity.Alert;
 import pl.coderslab.jeeusercrud.entity.User;
+import pl.coderslab.jeeusercrud.utils.ServletUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,29 +16,29 @@ import java.io.IOException;
 @WebServlet(name = "UserAdd", value = "/user/add")
 public class UserAdd extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        UserDao userDao = new UserDao();
-
         String email = request.getParameter("email");
         String userName = request.getParameter("username");
         String password = request.getParameter("password");
 
+        if (!ServletUtil.isUserDataValid(userName, email, password, request, response, "add")) {
+            return;
+        }
+
+        UserDao userDao = new UserDao();
         User user = new User.Builder()
                 .id(0)
                 .email(email)
                 .userName(userName)
                 .password(password)
                 .build();
-
-        // @todo add data validation, add popup with result info
         user = userDao.create(user);
 
-        HttpSession httpSession = request.getSession();
-
+        HttpSession session = request.getSession();
         if (user != null) {
-            httpSession.setAttribute("add", "success");
+            session.setAttribute("alert", new Alert("success", "New user added to database!"));
             response.sendRedirect(request.getContextPath() + "/user/list");
         } else {
-            httpSession.setAttribute("add", "fail");
+            session.setAttribute("alert", new Alert("danger", "User with email " + email + " already exists!"));
             response.sendRedirect(request.getContextPath() + "/user/add");
         }
     }
