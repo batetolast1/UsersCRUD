@@ -14,23 +14,24 @@ public class Admin {
         return BCrypt.checkpw(passwordToCheck, password);
     }
 
-    // TODO create superclass
+    // Inner Static Fluent Builder
 
-    public static class Builder {
+    public static final class Builder {
         private int id;
         private String email;
         private String password;
 
-        public Builder(int id) {
+        public Builder id(int id) {
             this.id = id;
+            return this;
         }
 
-        public Admin.Builder withEmail(String email) {
+        public Builder email(String email) {
             this.email = email;
             return this;
         }
 
-        public Admin.Builder withPassword(String password) {
+        public Builder password(String password) {
             this.password = password;
             return this;
         }
