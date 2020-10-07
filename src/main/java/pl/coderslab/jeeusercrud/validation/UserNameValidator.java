@@ -1,4 +1,4 @@
-package pl.coderslab.jeeusercrud.regex;
+package pl.coderslab.jeeusercrud.validation;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
