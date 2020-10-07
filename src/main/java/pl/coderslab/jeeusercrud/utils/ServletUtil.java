@@ -3,9 +3,9 @@ package pl.coderslab.jeeusercrud.utils;
 import pl.coderslab.jeeusercrud.dao.UserDao;
 import pl.coderslab.jeeusercrud.entity.Alert;
 import pl.coderslab.jeeusercrud.entity.User;
-import pl.coderslab.jeeusercrud.regex.EmailValidator;
-import pl.coderslab.jeeusercrud.regex.PasswordValidator;
-import pl.coderslab.jeeusercrud.regex.UserNameValidator;
+import pl.coderslab.jeeusercrud.validation.EmailValidator;
+import pl.coderslab.jeeusercrud.validation.PasswordValidator;
+import pl.coderslab.jeeusercrud.validation.UserNameValidator;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
