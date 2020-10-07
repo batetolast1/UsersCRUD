@@ -1,5 +1,9 @@
 package pl.coderslab.jeeusercrud.dao;
 
+import pl.coderslab.jeeusercrud.entity.Model;
+
+import java.util.List;
+
 public interface DaoInterface {
 
     void save(Model object);
